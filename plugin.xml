@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-amaplocation-joyo" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AMapNavigationPlugin</name>
+    <description>Cordova AMapNavigation Plugin Powerd by JoyoDuan</description>
+    <author email="JoyoDuan@163.com" href="">
+        JoyoDuan
+    </author>
+    <license>Apache 2.0</license>
+    <keywords>cordova, AMapNavigationPlugin, JoyoDuan</keywords>
+
+    <!-- 对外js调用 name一般对应js对用native的类名-->
+    <js-module name="AMapNavigationPlugin" src="www/amap-navigation.js">
+        <!-- target对应js中module.exports的原型对象，这里默认会注册到windows对象中，即AMapLocation.getLocation 和 window.AMapLocation.getLocation都可以 -->
+        <clobbers target="AMapNavigation"></clobbers>
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <!-- 加了preference后，add plugin 时要跟variable参数 -->
+        <preference name="KEY" default="" />
+        <config-file parent="/*" target="res/xml/config.xml">
+            <!-- name一般对应js对用native的类名 -->
+            <feature name="AMapNavigationPlugin">
+                <param name="android-package" value="com.joyo.cordova.nvaigation.AMapNavigationPlugin"/>
+            </feature>
+        </config-file>
+
+        <config-file parent="/*" target="AndroidManifest.xml">
+          <uses-permission android:name="android.permission.INTERNET"/>
+          <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+          <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+          <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+          <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+          <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+          <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+          <uses-permission android:name="android.permission.READ_CONTACTS"/>
+          <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+          <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+          <uses-permission android:name="android.permission.CHANGE_CONFIGURATION"/>
+          <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE"/>
+          <uses-permission android:name="android.permission.WAKE_LOCK"/>
+          <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+          <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS"/>
+          <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <!--您申请的高德地图android key-->
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="$KEY"/>
+        </config-file>
+
+        <config-file parent="/manifest/application" target="AndroidManifest.xml">
+          <activity android:name="com.joyo.cordova.navigation.NavigationActivity"/>
+        </config-file>
+
+        <source-file src="src/android/AMapNavigationPlugin.java" target-dir="src/com/joyo/cordova/navigation"/>
+        <source-file src="src/android/NavigationActivity.java" target-dir="src/com/joyo/cordova/navigation"/>
+
+        <source-file src="libs/android/armeabi/libgdamapv4sdk751.so" target-dir="libs/armeabi"/>
+        <source-file src="libs/android/armeabi/libgdamapv4sdk751ex.so" target-dir="libs/armeabi"/>
+        <source-file src="libs/android/armeabi/libmsc.so" target-dir="libs/armeabi"/>
+        <source-file src="libs/android/armeabi/libtbt.so" target-dir="libs/armeabi"/>
+        <source-file src="libs/android/armeabi/libwtbt.so" target-dir="libs/armeabi"/>
+
+
+        <source-file src="libs/android/armeabi/AMap_Android_3DMapSDK_V3.1.0.jar" target-dir="libs"/>
+        <source-file src="libs/android/armeabi/AMap_ Navi_v1.5.0_20151119.jar" target-dir="libs"/>
+        <source-file src="libs/android/armeabi/Msc.jar" target-dir="libs"/>
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <!-- name一般对应js对用native的类名 -->
+            <feature name="AMapLocationPlugin">
+                <param name="ios-package" value="AMapLocationPlugin"/>
+            </feature>
+            <!-- 加了preference后，add plugin 时要跟variable参数 -->
+            <preference name="KEY" value="7c15736826a49786f9ccd63fa7bb58ec" />
+            <preference name="iflytekappid" value="5804981b" />
+        </config-file>
+
+        <source-file src="src/ios/AMapNavigationPlugin.m"/>
+
+        <resource-file src="libs/ios/AMap.bundle"/>
+        <resource-file src="libs/ios/AMapNavi.bundle"/>
+
+        <framework src="libs/ios/AMapNaviKit.framework" custom="true"/>
+        <framework src="AudioToolbox.framework"/>
+        <framework src="AVFoundation.framework"/>
+        <framework src="AddressBook.framework"/>
+        <framework src="libz.dylib"/>
+        <framework src="libstdc++.6.0.9.dylib"/>
+    </platform>
+</plugin>

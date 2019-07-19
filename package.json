@@ -1,0 +1,26 @@
+{
+  "name": "cordova-plugin-amapnavigation-joyo",
+  "version": "0.0.1",
+  "description": "Cordova AMapNavigationPlugin Plugin Powerd by JoyoDuan",
+  "cordova": {
+    "id": "cordova-plugin-amapnavigation-joyo",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "cordova",
+    "AMapNavigationPlugin",
+    "JoyoDuan",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios"
+  ],
+  "author": "JoyoDuan",
+  "license": "Apache 2.0"
+}
