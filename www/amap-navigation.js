@@ -4,7 +4,7 @@ function AMapNavigation() {
 }
 
 AMapNavigation.prototype.navigation = function (startPoint, endPoint, NavType, successCallback, errorCallback) {
-  cordova.exec(successCallback, errorCallback, "AMapNavigation", 'navigation', [startPoint.lng, startPoint.lat, endPoint.lng, endPoint.lat, NavType.toString()]);
+  cordova.exec(successCallback, errorCallback, "AMapNavigationPlugin", 'navigation', [startPoint.lng, startPoint.lat, endPoint.lng, endPoint.lat, NavType.toString()]);
 };
 
 module.exports = new AMapNavigation();
