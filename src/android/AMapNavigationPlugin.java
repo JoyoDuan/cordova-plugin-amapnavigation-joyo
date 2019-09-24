@@ -23,7 +23,7 @@ import com.joyo.cordova.navigation.NavigationActivity;
  */
 public class AMapNavigationPlugin extends CordovaPlugin {
     private CallbackContext callbackContext;
-    private static AMapNavigation mapNavigation = null;
+    private static AMapNavigationPlugin mapNavigation = null;
     public static CordovaWebView cordovaWebView = null;
 
     @Override
@@ -86,7 +86,7 @@ public class AMapNavigationPlugin extends CordovaPlugin {
         callbackContext.sendPluginResult(pluginResult);
     }
 
-    public static AMapNavigation getInstance(){
+    public static AMapNavigationPlugin getInstance(){
         return mapNavigation;
     }
 }
