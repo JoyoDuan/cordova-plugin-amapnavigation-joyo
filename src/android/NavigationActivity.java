@@ -213,7 +213,7 @@ public class NavigationActivity extends Activity implements
     @Override
     public void onLocationChange(AMapNaviLocation arg0) {
         // TODO Auto-generated method stub
-        AMapNavigation.getInstance().keepCallback(arg0.getCoord());
+        AMapNavigationPlugin.getInstance().keepCallback(arg0.getCoord());
     }
 
     @Override
