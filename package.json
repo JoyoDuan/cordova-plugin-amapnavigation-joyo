@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-amapnavigation-joyo",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Cordova AMapNavigationPlugin Plugin Powerd by JoyoDuan",
   "cordova": {
     "id": "cordova-plugin-amapnavigation-joyo",
