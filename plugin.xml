@@ -1,22 +1,23 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="cordova-plugin-amapnavigation-joyo" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="cordova-plugin-amapnavigation-joyo" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>AMapNavigationPlugin</name>
     <description>Cordova AMapNavigation Plugin Powerd by JoyoDuan</description>
     <author email="JoyoDuan@163.com" href="">
         JoyoDuan
     </author>
     <license>Apache 2.0</license>
-    <keywords>cordova, AMapNavigationPlugin, JoyoDuan</keywords>
+    <keywords>cordova, AMapNavigation, AMapNavigationPlugin, JoyoDuan</keywords>
 
     <!-- 对外js调用 name一般对应js对用native的类名-->
     <js-module name="AMapNavigationPlugin" src="www/amap-navigation.js">
+        <!-- 对js开放调用的声明 -->
         <clobbers target="AMapNavigation"></clobbers>
     </js-module>
 
     <!-- android -->
     <platform name="android">
         <!-- 加了preference后，add plugin 时要跟variable参数 -->
-        <preference name="KEY" default="" />
+        <preference name="ANDROID_KEY" default="7c15736826a49786f9ccd63fa7bb58ec" />
         <config-file parent="/*" target="res/xml/config.xml">
             <!-- name一般对应js对用native的类名 -->
             <feature name="AMapNavigationPlugin">
@@ -45,7 +46,7 @@
 
         <config-file target="AndroidManifest.xml" parent="/manifest/application">
             <!--您申请的高德地图android key-->
-            <meta-data android:name="com.amap.api.v2.apikey" android:value="$KEY"/>
+            <meta-data android:name="com.amap.api.v2.apikey" android:value="$ANDROID_KEY"/>
         </config-file>
 
         <config-file parent="/manifest/application" target="AndroidManifest.xml">
